@@ -1,0 +1,40 @@
+{{navigation-bar}}
+
+
+<div class="row">
+  <div class="col s12">
+    <h4>Usuarios</h4>
+  </div>
+</div>
+
+
+<div class="row">
+
+  <!-- User list -->
+  <div class="col s8">
+
+    {{tenpines/material-button label='Crear nuevo' click=(action 'create') bgColor='green' }}
+
+    {{#tenpines/object-table titulos='Id, Nombre, Login, Password' striped=true}}
+      {{#each model as |user|}}
+        <tr>
+          <td>{{#link-to 'users.edit' user}}{{user.id}}{{/link-to}}</td>
+          <td>{{#link-to 'users.edit' user}}{{user.name}}{{/link-to}}</td>
+          <td>{{user.login}}</td>
+          <td>{{user.password}}</td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="4">No users found</td>
+        </tr>
+      {{/each}}
+    {{/tenpines/object-table}}
+
+  </div>
+
+  <!-- User edit form -->
+  <div class="col s4">
+    {{outlet}}
+  </div>
+
+</div>

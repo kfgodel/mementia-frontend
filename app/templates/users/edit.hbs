@@ -1,0 +1,11 @@
+{{tenpines/labeled-label label='ID' value=model.id }}
+{{tenpines/input-text label='Nombre' value=model.name }}
+{{tenpines/input-text label='Login' value=model.login }}
+{{tenpines/input-text label='Password' value=model.password }}
+{{tenpines/labeled-label label='Creado' value=model.creation }}
+{{tenpines/labeled-label label='Editado' value=model.modification }}
+
+<div class="right">
+  {{tenpines/material-button label='Eliminar' click=(action 'remove') bgColor='red' }}
+  {{tenpines/material-button label='Guardar' click=(action 'save') bgColor='green' }}
+</div>

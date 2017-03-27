@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col s8 offset-s2 m6 offset-m3 l4 offset-l4">
+    <form class="{{if errorMessage "has-error"}}">
+      <h4 class="form-signin-heading">{{application.displayName}}</h4>
+
+      {{tenpines/input-text label='Login name' value=model.login}}
+      {{tenpines/input-password label='Password' value=model.password enter="logIn"}}
+
+      {{#if errorMessage}}
+        <span class="help-block">{{errorMessage}}</span>
+      {{/if}}
+
+      {{tenpines/material-button label='Entrar' action='logIn' bgColor='blue' }}
+    </form>
+  </div>
+</div>

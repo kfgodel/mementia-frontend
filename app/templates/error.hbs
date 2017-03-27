@@ -1,0 +1,18 @@
+{{navigation-bar}}
+
+<div class="row">
+  <div class="col s12">
+
+    <h4>Error: Algo fallo, pero no puedo determinar la causa</h4>
+    <p>Puede ser la comunicacion con el servidor, o un error interno de la aplicacion.</p>
+    <p>Si el problema es el servidor, no podra realizar ninguna accion. Si es un error
+      interno, puede seguir utilizando las funciones no defectuosas</p>
+    <p>{{message}}</p>
+    <p>{{stack}}</p>
+
+    <p>
+      {{#link-to 'index'}}Intentar volver al inicio{{/link-to}}
+    </p>
+
+  </div>
+</div>

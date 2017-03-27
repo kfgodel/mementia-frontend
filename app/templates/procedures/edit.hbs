@@ -1,0 +1,25 @@
+<div class="row">
+  {{tenpines/input-text label="Nombre del procedimiento" value=model.name col='s12'}}
+  {{tenpines/input-text label="Tags separados por comma.."  value=model.tags col='s12'}}
+</div>
+
+<div class="row">
+  {{tenpines/text-area col='s6'
+    label="Descripción de los pasos y roles involucrados (markdown)"
+  value=model.description
+  }}
+
+  <div class="col s6">
+    {{markdown-view value=model.description}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12">
+    <h3>Acciones</h3>
+    {{tenpines/material-button label='Eliminar' action='deleteModel' bgColor='red'}}
+    {{tenpines/material-button label='Cancelar' action='cancelEdition' flat=true }}
+    {{tenpines/material-button label='Guardar' action='saveModel' bgColor='green' }}
+  </div>
+</div>
+

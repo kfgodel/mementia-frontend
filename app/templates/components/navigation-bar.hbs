@@ -1,0 +1,20 @@
+<div class="nav-wrapper">
+
+  {{#link-to 'procedures.filter' (query-params filterText="") classNames="brand-logo"}}{{application.displayName}}{{/link-to}}
+
+
+  <ul class="right">
+    <li>
+      {{search-anywhere }}
+      <i class="material-icons">search</i>
+    </li>
+  <li>
+    {{#tenpines/drop-down label='Opciones' icon='arrow_drop_down' iconToTheRight=true removeBtn=true }}
+      <li>{{#link-to 'users'}}Usuarios{{/link-to}}</li>
+      <li class="divider"></li>
+      <li><a href="#" {{action "logout"}}>Salir</a></li>
+    {{/tenpines/drop-down }}
+    </li>
+  </ul>
+
+</div>

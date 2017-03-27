@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>ar.com.kfgodel</groupId>
+    <artifactId>root-pom</artifactId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>mementia-frontend</artifactId>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Mementia Frontend</name>
+  <description>Ember frontend para el proyecto mementia</description>
+
+  <scm>
+    <connection>scm:git:ssh://github.com/kfgodel/mementia-frontend.git</connection>
+    <developerConnection>scm:git:ssh://github.com/kfgodel/mementia-frontend.git</developerConnection>
+    <url>https://github.com/kfgodel/mementia-frontend</url>
+  </scm>
+
+  <repositories>
+    <repository>
+      <id>kfgodel_mosquito</id>
+      <name>Repo Mosquito</name>
+      <url>http://kfgodel.info:8081/nexus/content/groups/public/</url>
+    </repository>
+  </repositories>
+
+  <properties>
+    <version.plugin.assembly>2.4</version.plugin.assembly>
+  </properties>
+
+  <build>
+    <plugins>
+      <!-- Package everything in a zip file as maven dependency -->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>${version.plugin.assembly}</version>
+        <executions>
+          <execution>
+            <id>generate-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <descriptors>
+            <descriptor>src/assembly/descriptor.xml</descriptor>
+          </descriptors>
+          <finalName>${project.artifactId}</finalName>
+          <appendAssemblyId>false</appendAssemblyId>
+          <outputDirectory>target</outputDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
