@@ -8,12 +8,20 @@ export default Ember.Controller.extend(BaseGrafoServiceInjected, {
   }),
 
   actions: {
-    buscarQuery: function() {
+    buscarQuery() {
       this.set('resultadoDeQuery', undefined);
       let query = this.get('query');
       this.baseGrafoService().ejecutarQuery(query)
         .then((resultadoDeQuery)=>{
           this.set('resultadoDeQuery', resultadoDeQuery);
+        });
+    },
+    ejecutarGroovy() {
+      this.set('resultadoGroovy', undefined);
+      let codigo = this.get('codigoGroovy');
+      this.baseGrafoService().ejecutarGroovy(codigo)
+        .then((respuesta)=>{
+          this.set('resultadoGroovy', respuesta.get('resultado'));
         });
     }
   },

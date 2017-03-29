@@ -13,6 +13,12 @@ export default Ember.Service.extend(MessageServiceInjected, {
       .build();
     return this._send(message);
   },
+  ejecutarGroovy(codigo) {
+    let message = new MessageBuilder('EJECUTAR/groovy')
+      .withProperty('codigo', codigo)
+      .build();
+    return this._send(message);
+  },
 
   // PRIVATE
   _send(message){
