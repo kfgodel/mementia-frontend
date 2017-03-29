@@ -11,6 +11,9 @@ Router.map(function() {
   this.route('login');
   this.route('engaging-session');
 
+
+  this.route('editar-base-grafo');
+
   this.route('users', function(){
     this.route('edit', { path: "edit/:user_id" });
   });
