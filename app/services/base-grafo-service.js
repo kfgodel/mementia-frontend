@@ -7,6 +7,12 @@ import MessageServiceInjected from "../mixins/message-service-injected";
  */
 export default Ember.Service.extend(MessageServiceInjected, {
 
+  crearNodo(){
+    let message = new MessageBuilder('CREAR/nodo')
+      .build();
+    return this._send(message);
+  },
+
   ejecutarQuery(query) {
     let message = new MessageBuilder('EJECUTAR/query')
       .withProperty('query', query)

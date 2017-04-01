@@ -16,6 +16,10 @@ export default Ember.Service.extend(TransitionerInjected, {
   navigateToIndex(){
     this._navigateTo('index');
   },
+  navigateToEditarBaseGrafo(){
+    this._navigateTo('editar-base-grafo');
+  },
+
   /**
    * Moves the user to the procedures list. It doesn't force a model refresh
    */
