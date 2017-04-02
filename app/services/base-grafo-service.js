@@ -13,6 +13,13 @@ export default Ember.Service.extend(MessageServiceInjected, {
     return this._send(message);
   },
 
+  crearRelacion(parametros){
+    let message = new MessageBuilder('CREAR/relacion')
+      .withObject(parametros)
+      .build();
+    return this._send(message);
+  },
+
   ejecutarQuery(query) {
     let message = new MessageBuilder('EJECUTAR/query')
       .withProperty('query', query)
