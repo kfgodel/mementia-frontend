@@ -12,9 +12,21 @@ export default Ember.Service.extend(MessageServiceInjected, {
       .build();
     return this._send(message);
   },
+  borrarNodo(parametros){
+    let message = new MessageBuilder('BORRAR/nodo')
+      .withObject(parametros)
+      .build();
+    return this._send(message);
+  },
 
   crearRelacion(parametros){
     let message = new MessageBuilder('CREAR/relacion')
+      .withObject(parametros)
+      .build();
+    return this._send(message);
+  },
+  borrarRelacion(parametros){
+    let message = new MessageBuilder('BORRAR/relacion')
       .withObject(parametros)
       .build();
     return this._send(message);
