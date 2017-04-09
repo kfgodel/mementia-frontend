@@ -18,6 +18,12 @@ export default Ember.Service.extend(MessageServiceInjected, {
       .build();
     return this._send(message);
   },
+  setPropiedadEnNodo(parametros){
+    let message = new MessageBuilder('SET/propiedad_de_nodo')
+      .withObject(parametros)
+      .build();
+    return this._send(message);
+  },
 
   crearRelacion(parametros){
     let message = new MessageBuilder('CREAR/relacion')
@@ -27,6 +33,12 @@ export default Ember.Service.extend(MessageServiceInjected, {
   },
   borrarRelacion(parametros){
     let message = new MessageBuilder('BORRAR/relacion')
+      .withObject(parametros)
+      .build();
+    return this._send(message);
+  },
+  setPropiedadEnRelacion(parametros){
+    let message = new MessageBuilder('SET/propiedad_de_relacion')
       .withObject(parametros)
       .build();
     return this._send(message);
