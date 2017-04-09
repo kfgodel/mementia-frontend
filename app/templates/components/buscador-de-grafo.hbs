@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Buscar</span>
+    {{#if trajoResultados}}
+      <div class="row">
+        {{#if resultadoDeQuery}}
+          {{tenpines/object-table objetos=resultadoDeQuery col="s12" striped=true }}
+        {{else}}
+          <div class="col s12">
+            <span>Sin resultados</span>
+          </div>
+        {{/if}}
+      </div>
+    {{/if}}
+
+    <div class="row">
+      {{tenpines/text-area value=query col="s12"}}
+    </div>
+  </div>
+  <div class="card-action left-align">
+    {{tenpines/material-button label='Buscar' action='buscarQuery' }}
+  </div>
+</div>
