@@ -56,6 +56,12 @@ export default Ember.Service.extend(MessageServiceInjected, {
     return this._send(message);
   },
 
+  buscarGrafo() {
+    let message = new MessageBuilder('GET/grafo')
+      .build();
+    return this._send(message);
+  },
+
   ejecutarQuery(query) {
     let message = new MessageBuilder('EJECUTAR/query')
       .withProperty('query', query)

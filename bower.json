@@ -12,9 +12,11 @@
     "typeahead.js": "^0.11.1",
     "moment": "^2.12.0",
     "jquery-validation": "^1.15.0",
-    "bootstrap-material-datetimepicker": "^2.7.1"
+    "bootstrap-material-datetimepicker": "^2.7.1",
+    "alchemyjs": "^0.4.2"
   },
   "resolutions": {
-    "jquery": "2.2.4"
+    "jquery": "2.2.4",
+    "bootstrap": "~3.3.4"
   }
 }
