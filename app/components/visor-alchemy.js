@@ -15,6 +15,16 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
     let alchemy = new Alchemy();
     this.set('alchemy', alchemy);
 
+    this._recargarDatos();
+  },
+
+  actions:{
+    actualizarGrafo(){
+      this._recargarDatos();
+    }
+  },
+
+  _recargarDatos(){
     this.baseGrafoService().buscarGrafo()
       .then((estadoGrafo)=>{
         this._actualizarVisualizacion(estadoGrafo);
@@ -36,7 +46,9 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
 //      caption: function(node){ return node.caption; }
     };
 
-    this.get('alchemy').begin(config);
+    let alchemy = this.get('alchemy');
+    alchemy.begin(config);
   },
+
 
 });
