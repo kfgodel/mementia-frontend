@@ -33,6 +33,7 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
         })
         .selector('edge').css({
           'curve-style': 'bezier',
+          'content': 'data(tipoDeRelacion)',
           'opacity': 0.5,
           'target-arrow-shape': 'triangle',
           'source-arrow-shape': 'circle',
@@ -42,25 +43,19 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
           'target-arrow-shape': 'diamond'
         }),
       elements: {
-        nodes: [
-          { data: { id: 'j', name: 'Jerry'} },
-          { data: { id: 'e', name: 'Elaine'} },
-          { data: { id: 'k', name: 'Kramer'} },
-          { data: { id: 'g', name: 'George'} }
+        "nodes": [
+          {"data": {"id": 0, "name": "Nodo 0"}},
+          {"data": {"id": 1, "name": "Nodo 1"}},
+          {"data": {"id": 2, "name": "Nodo 2"}},
+          {"data": {"id": 3, "name": "Nodo 3"}},
+          {"data": {"id": 4, "name": "Nodo 4"}},
+          {"data": {"id": 5, "name": "Nodo 5"}}
         ],
-        edges: [
-          { data: { source: 'j', target: 'e' } },
-          { data: { source: 'j', target: 'k' } },
-          { data: { source: 'j', target: 'g' } },
-
-          { data: { source: 'e', target: 'j'} },
-          { data: { source: 'e', target: 'k' },  classes: 'questionable' },
-
-          { data: { source: 'k', target: 'j'} },
-          { data: { source: 'k', target: 'e'} },
-          { data: { source: 'k', target: 'g'} },
-
-          { data: { source: 'g', target: 'j'} }
+        "edges": [
+          {"data": {"source": 0, "target": 1, "tipoDeRelacion": "prueba"}},
+          {"data": {"source": 1,"target": 2,"tipoDeRelacion": "lala"}},
+          {"data": {"source": 1, "target": 4, "tipoDeRelacion": "con_propiedad"}},
+          {"data": {"source": 3,"target": 1,"tipoDeRelacion": "asdasd"}}
         ]
       }
 
@@ -68,7 +63,12 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
 
     this.set('visualizacion', visualizacion);
 
-    this._recargarDatos();
+    // this._recargarDatos();
+  },
+
+  willDestroyElement(){
+    this._visualizacion().destroy();
+    this.set('visualizacion', null);
   },
 
   actions: {
@@ -85,11 +85,11 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
   },
 
   _actualizarVisualizacion(nuevoEstado){
-
-
-
-
+    this._visualizacion().json({ 'elements': nuevoEstado });
   },
 
+  _visualizacion(){
+    return this.get('visualizacion');
+  }
 
 });
