@@ -19,16 +19,8 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  // Alchemy.js http://graphalchemist.github.io/Alchemy/#/
-  app.import('bower_components/alchemyjs/dist/styles/vendor.css');
-  app.import('bower_components/alchemyjs/dist/alchemy.css');
-
-  app.import('bower_components/alchemyjs/dist/styles/fonts/FontAwesome.otf');
-  app.import('bower_components/alchemyjs/dist/styles/fonts/fontawesome-webfont.ttf');
-  app.import('bower_components/alchemyjs/dist/styles/fonts/fontawesome-webfont.woff');
-
-  app.import('bower_components/alchemyjs/dist/scripts/vendor.js');
-  app.import('bower_components/alchemyjs/dist/alchemy.js');
+  // Libreria de grafos http://js.cytoscape.org
+  app.import('bower_components/cytoscape/dist/cytoscape.js');
 
   return app.toTree();
 };
