@@ -29,7 +29,7 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
         })
         .selector(':selected').css({
           'border-width': 2,
-          'border-color': '#333'
+          'border-color': '#196dbc'
         })
         .selector('edge').css({
           'curve-style': 'bezier',
@@ -62,7 +62,6 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
     });
 
     this.set('visualizacion', visualizacion);
-
     // this._recargarDatos();
   },
 
@@ -85,7 +84,11 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
   },
 
   _actualizarVisualizacion(nuevoEstado){
-    this._visualizacion().json({ 'elements': nuevoEstado });
+    let nuevaConfig = { 'elements': nuevoEstado };
+    let visualizacion = this._visualizacion();
+    visualizacion.json(nuevaConfig);
+    visualizacion.fit();
+    Ember.Logger.info('edges', visualizacion.edges());
   },
 
   _visualizacion(){
