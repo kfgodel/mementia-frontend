@@ -7,6 +7,12 @@ import MessageServiceInjected from "../mixins/message-service-injected";
  */
 export default Ember.Service.extend(MessageServiceInjected, {
 
+  buscarAccionesDisponibles(){
+    let message = new MessageBuilder('LISTAR/acciones')
+      .build();
+    return this._send(message);
+  },
+
   crearNodo(){
     let message = new MessageBuilder('CREAR/nodo')
       .build();
