@@ -6,20 +6,11 @@ export default Ember.Component.extend(AccionServiceInjected, Sizeable, {
 
   accionElegida: null,
 
-  noSePuedeEjecutar: Ember.computed('accionElegida', 'accionElegida.parametros.@each.valor',function () {
-    let accionElegida = this._accionElegida();
-    if(!accionElegida){
+  faltaAccionEjecutable: Ember.computed('accionElegida.estaIncompleta',function () {
+    if(!this.get('accionElegida')){
       return true;
     }
-    let parametros = this._parametros();
-    for (var i = 0; i < parametros.length; i++) {
-      var parametro = parametros[i];
-      let valor = parametro.get('valor');
-      if(valor === undefined){
-        return true;
-      }
-    }
-    return false;
+    return this.get('accionElegida.estaIncompleta');
   }),
 
   init(){
@@ -37,31 +28,12 @@ export default Ember.Component.extend(AccionServiceInjected, Sizeable, {
   actions: {
     ejecutarAccion: function () {
       let recurso = this.get('accionElegida.recurso');
-      let parametros = this._calcularObjetoParametros();
+      let parametros = this.get('accionElegida.objetoParametros');
       this.accionService().ejecutarAccion(recurso, parametros)
         .then(()=>{
           this.set('mensajeDeFeedback', 'Hecho');
         });
     }
   },
-
-  _accionElegida() {
-    return this.get('accionElegida');
-  },
-  _parametros() {
-    return this.get('accionElegida.parametros');
-  },
-
-  _calcularObjetoParametros(){
-    let objeto = Ember.Object.create();
-    let parametros = this._parametros();
-    for (var i = 0; i < parametros.length; i++) {
-      var parametro = parametros[i];
-      let valor = parametro.get('valor');
-      let propiedad = parametro.get('nombre');
-      objeto.set(propiedad, valor);
-    }
-    return objeto;
-  }
 
 });
