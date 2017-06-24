@@ -5,7 +5,7 @@
     <div class="row">
       {{tenpines/single-select label="Accion" opciones=accionesDisponibles elegido=accionElegida col="s12" }}
       {{#if accionElegida}}
-        {{#each accionElegida.parametros as |parametro|}}
+        {{#each accionElegida.parametrosMejorados as |parametro|}}
           {{editor-de-parametro parametro=parametro }}
         {{/each}}
       {{/if}}

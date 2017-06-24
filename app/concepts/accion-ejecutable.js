@@ -14,6 +14,10 @@ export default Ember.Object.extend({
     return false;
   }),
 
+  parametrosMejorados: Ember.computed('parametros', function () {
+    return this._parametros();
+  }),
+
   objetoParametros: Ember.computed('parametros.@each.valor', function () {
     return this._calcularObjetoParametros();
   }),
