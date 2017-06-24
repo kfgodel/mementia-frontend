@@ -42,15 +42,7 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
           'line-style': 'dotted',
           'target-arrow-shape': 'diamond'
         }),
-      elements: {
-        "nodes": [
-          {"data": {"id": 0, "name": "Nodo 0"}},
-          {"data": {"id": 1, "name": "Nodo 1"}},
-        ],
-        "edges": [
-          {"data": {"source": 0, "target": 1, "tipoDeRelacion": "prueba"}},
-        ]
-      }
+
 
     });
 
