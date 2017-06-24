@@ -46,23 +46,16 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
         "nodes": [
           {"data": {"id": 0, "name": "Nodo 0"}},
           {"data": {"id": 1, "name": "Nodo 1"}},
-          {"data": {"id": 2, "name": "Nodo 2"}},
-          {"data": {"id": 3, "name": "Nodo 3"}},
-          {"data": {"id": 4, "name": "Nodo 4"}},
-          {"data": {"id": 5, "name": "Nodo 5"}}
         ],
         "edges": [
           {"data": {"source": 0, "target": 1, "tipoDeRelacion": "prueba"}},
-          {"data": {"source": 1,"target": 2,"tipoDeRelacion": "lala"}},
-          {"data": {"source": 1, "target": 4, "tipoDeRelacion": "con_propiedad"}},
-          {"data": {"source": 3,"target": 1,"tipoDeRelacion": "asdasd"}}
         ]
       }
 
     });
 
     this.set('visualizacion', visualizacion);
-    // this._recargarDatos();
+    this._recargarDatos();
   },
 
   willDestroyElement(){
@@ -87,8 +80,8 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
     let nuevaConfig = { 'elements': nuevoEstado };
     let visualizacion = this._visualizacion();
     visualizacion.json(nuevaConfig);
+    visualizacion.layout({name: 'cose'}).run();
     visualizacion.fit();
-    Ember.Logger.info('edges', visualizacion.edges());
   },
 
   _visualizacion(){

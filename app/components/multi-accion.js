@@ -22,8 +22,12 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
     return false;
   }),
 
-  didInsertElement(){
+  init(){
     this._super(...arguments);
+    this._actualizarAcciones();
+  },
+
+  _actualizarAcciones(){
     this.baseGrafoService().buscarAccionesDisponibles()
       .then((metadataDeAcciones)=>{
         this.set('accionesDisponibles', metadataDeAcciones.get('acciones'));
