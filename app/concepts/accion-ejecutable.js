@@ -1,4 +1,5 @@
 import Ember from "ember";
+import ParametroDeAccion from "./parametro-de-accion";
 
 export default Ember.Object.extend({
 
@@ -6,8 +7,7 @@ export default Ember.Object.extend({
     let parametros = this._parametros();
     for (let i = 0; i < parametros.length; i++) {
       const parametro = parametros[i];
-      let valor = parametro.get('valor');
-      if(valor === undefined || valor === ''){
+      if(!parametro.get('estaCompleto')){
         return true;
       }
     }
@@ -19,7 +19,11 @@ export default Ember.Object.extend({
   }),
 
   _parametros(){
-    return this.get('parametros');
+    let parametrosOriginales = this.get('parametros');
+    let parametrosMejorados = parametrosOriginales.map(function (parametro) {
+      return ParametroDeAccion.create(parametro);
+    });
+    return Ember.A(parametrosMejorados);
   },
 
   _calcularObjetoParametros(){

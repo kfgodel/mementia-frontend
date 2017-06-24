@@ -6,7 +6,7 @@ export default Ember.Component.extend(AccionServiceInjected, Sizeable, {
 
   accionElegida: null,
 
-  faltaAccionEjecutable: Ember.computed('accionElegida.estaIncompleta',function () {
+  noSePuedeEjecutar: Ember.computed('accionElegida.estaIncompleta',function () {
     if(!this.get('accionElegida')){
       return true;
     }

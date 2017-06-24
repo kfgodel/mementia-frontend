@@ -4,15 +4,12 @@
 
     <div class="row">
       {{tenpines/single-select label="Accion" opciones=accionesDisponibles elegido=accionElegida col="s12" }}
-    </div>
-
-    {{#if accionElegida.parametros}}
-      <div class="row">
+      {{#if accionElegida}}
         {{#each accionElegida.parametros as |parametro|}}
-          {{tenpines/input-text value=parametro.valor label=parametro.nombre col="s4" }}
+          {{editor-de-parametro parametro=parametro }}
         {{/each}}
-      </div>
-    {{/if}}
+      {{/if}}
+    </div>
 
     {{#if mensajeDeFeedback}}
       <div class="row">
@@ -23,6 +20,6 @@
     {{/if}}
   </div>
   <div class="card-action left-align">
-    {{tenpines/material-button label='Ejecutar Accion' action='ejecutarAccion' disabled=faltaAccionEjecutable }}
+    {{tenpines/material-button label='Ejecutar Accion' action='ejecutarAccion' disabled=noSePuedeEjecutar }}
   </div>
 </div>
