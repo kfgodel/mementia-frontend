@@ -33,7 +33,7 @@ export default Ember.Component.extend(BaseGrafoServiceInjected, Sizeable, {
         })
         .selector('edge').css({
           'curve-style': 'bezier',
-          'content': 'data(tipoDeRelacion)',
+          'content': 'data(nombre)',
           'opacity': 0.5,
           'target-arrow-shape': 'triangle',
           'source-arrow-shape': 'circle',
