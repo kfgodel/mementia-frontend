@@ -13,6 +13,7 @@ export default Ember.Object.extend({
     switch (tipo){
       case 'palabra': return 'tenpines/input-text';
       case 'numero': return 'tenpines/input-number';
+      case 'texto': return 'tenpines/text-area';
     }
     return 'tenpines/input-text';
   })

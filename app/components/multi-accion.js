@@ -29,9 +29,10 @@ export default Ember.Component.extend(AccionServiceInjected, Sizeable, {
     ejecutarAccion: function () {
       let recurso = this.get('accionElegida.recurso');
       let parametros = this.get('accionElegida.objetoParametros');
+      this.set('respuesta', null);
       this.accionService().ejecutarAccion(recurso, parametros)
-        .then(()=>{
-          this.set('mensajeDeFeedback', 'Hecho');
+        .then((respuesta)=>{
+          this.set('respuesta', respuesta);
         });
     }
   },

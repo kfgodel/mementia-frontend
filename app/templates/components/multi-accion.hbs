@@ -11,11 +11,9 @@
       {{/if}}
     </div>
 
-    {{#if mensajeDeFeedback}}
+    {{#if respuesta}}
       <div class="row">
-        <div class="col s12">
-          <span>{{mensajeDeFeedback}}</span>
-        </div>
+        {{visor-de-retorno respuesta=respuesta tipoEsperado=accionElegida.retorno.tipo col="s12"}}
       </div>
     {{/if}}
   </div>
