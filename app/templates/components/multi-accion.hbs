@@ -19,7 +19,9 @@
       </div>
     {{/if}}
   </div>
-  <div class="card-action left-align">
-    {{tenpines/material-button label='Ejecutar Accion' action='ejecutarAccion' disabled=noSePuedeEjecutar }}
-  </div>
+  {{#if sePuedeEjecutar}}
+    <div class="card-action left-align">
+      {{tenpines/material-button label='Ejecutar Accion' action='ejecutarAccion' }}
+    </div>
+  {{/if}}
 </div>

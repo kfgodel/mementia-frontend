@@ -6,11 +6,11 @@ export default Ember.Component.extend(AccionServiceInjected, Sizeable, {
 
   accionElegida: null,
 
-  noSePuedeEjecutar: Ember.computed('accionElegida.estaIncompleta',function () {
+  sePuedeEjecutar: Ember.computed('accionElegida.tieneParametrosDefinidos',function () {
     if(!this.get('accionElegida')){
-      return true;
+      return false;
     }
-    return this.get('accionElegida.estaIncompleta');
+    return this.get('accionElegida.tieneParametrosDefinidos');
   }),
 
   init(){

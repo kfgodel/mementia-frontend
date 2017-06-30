@@ -3,15 +3,15 @@ import ParametroDeAccion from "./parametro-de-accion";
 
 export default Ember.Object.extend({
 
-  estaIncompleta: Ember.computed('parametrosMejorados.@each.valor', function () {
+  tieneParametrosDefinidos: Ember.computed('parametrosMejorados.@each.valor', function () {
     let parametros = this.get('parametrosMejorados');
     for (let i = 0; i < parametros.length; i++) {
       const parametro = parametros[i];
       if(!parametro.get('estaCompleto')){
-        return true;
+        return false;
       }
     }
-    return false;
+    return true;
   }),
 
   parametrosMejorados: Ember.computed('parametros.[]', function () {
