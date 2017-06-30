@@ -6,6 +6,10 @@ export default Ember.Component.extend(AccionServiceInjected, Sizeable, {
 
   accionElegida: null,
 
+  accionElegidaChanged: Ember.observer('accionElegida', function () {
+    this.set('respuesta', null);
+  }),
+
   sePuedeEjecutar: Ember.computed('accionElegida.tieneParametrosDefinidos',function () {
     if(!this.get('accionElegida')){
       return false;
