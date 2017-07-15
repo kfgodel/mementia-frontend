@@ -18,8 +18,9 @@ export default Ember.Service.extend(MessageServiceInjected, {
     return this._send(message);
   },
 
-  buscarAccionesDisponibles(){
+  buscarAccionesDisponibles(parametros){
     let message = new MessageBuilder('LISTAR/acciones')
+      .withObject(parametros)
       .build();
     return this._send(message, AccionEjecutable);
   },

@@ -13,6 +13,7 @@ Router.map(function() {
 
 
   this.route('editar-base-grafo');
+  this.route('editar-base-relacional');
 
   this.route('users', function(){
     this.route('edit', { path: "edit/:user_id" });

@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Multi-accion</span>
+
+    <div class="row">
+      {{tenpines/single-select label="Accion" opciones=accionesDisponibles elegido=accionElegida col="s12" }}
+      {{#if accionElegida}}
+        {{#each accionElegida.parametrosMejorados as |parametro|}}
+          {{editor-de-parametro parametro=parametro }}
+        {{/each}}
+      {{/if}}
+    </div>
+
+    {{#if respuesta}}
+      <div class="row">
+        {{visor-de-retorno respuesta=respuesta tipoEsperado=accionElegida.retorno.tipo col="s12"}}
+      </div>
+    {{/if}}
+  </div>
+  {{#if sePuedeEjecutar}}
+    <div class="card-action left-align">
+      {{tenpines/material-button label='Ejecutar Accion' action='ejecutarAccion' }}
+    </div>
+  {{/if}}
+</div>

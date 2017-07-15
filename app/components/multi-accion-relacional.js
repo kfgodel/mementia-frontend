@@ -23,7 +23,10 @@ export default Ember.Component.extend(AccionServiceInjected, Sizeable, {
   },
 
   _actualizarAcciones(){
-    this.accionService().buscarAccionesDisponibles()
+    let parametros = Ember.Object.create({
+      tagEsperado: 'base-relacional'
+    });
+    this.accionService().buscarAccionesDisponibles(parametros)
       .then((metadataDeAcciones)=>{
         this.set('accionesDisponibles', metadataDeAcciones.get('acciones'));
       });
