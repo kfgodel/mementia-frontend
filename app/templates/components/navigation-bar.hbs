@@ -1,13 +1,8 @@
 <div class="nav-wrapper">
 
-  {{#link-to 'procedures.filter' (query-params filterText="")
-             classNames="brand-logo"}}{{application.displayName}}{{/link-to}}
+  <a href="#" class="brand-logo">{{application.displayName}}</a>
 
   <ul class="right">
-    <li>
-      {{search-anywhere }}
-      <i class="material-icons">search</i>
-    </li>
     <li>{{#link-to 'editar-base-grafo'}}Editar Grafo{{/link-to}}</li>
     <li>
       {{#tenpines/drop-down label='Opciones' icon='arrow_drop_down' iconToTheRight=true removeBtn=true }}

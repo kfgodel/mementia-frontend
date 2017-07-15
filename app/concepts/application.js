@@ -1,5 +1,5 @@
 import Ember from "ember";
 
 export default Ember.Object.extend({
-  displayName: 'Procedimientos activos',
+  displayName: 'Persistencia sin ids',
 });
