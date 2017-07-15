@@ -19,26 +19,10 @@ export default Ember.Service.extend(TransitionerInjected, {
   navigateToEditarBaseGrafo(){
     this._navigateTo('editar-base-grafo');
   },
+  navigateToEditarBaseRelacional(){
+    this._navigateTo('editar-base-relacional');
+  },
 
-  /**
-   * Moves the user to the procedures list. It doesn't force a model refresh
-   */
-  navigateToProceduresList(){
-    this._navigateTo('procedures.filter');
-  },
-  /**
-   * Moves the user to the procedures list indicating a new query param that refreshes the model
-   * @param filterText the text to filter procedures
-   */
-  navigateToProceduresListFilteringBy(filterText){
-    this._navigateTo('procedures.filter', undefined, {filterText: filterText});
-  },
-  navigateToProcedureView(procedure){
-    this._navigateTo('procedures.view', procedure);
-  },
-  navigateToProcedureEdit(procedure){
-    this._navigateTo('procedures.edit', procedure);
-  },
   navigateToUsers(){
     this._navigateTo('users');
   },
